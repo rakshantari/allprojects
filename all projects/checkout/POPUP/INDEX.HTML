@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <button type="submit" class="btn" onclick="openpopup()">Submit</button>
+    <div class="popup" id="popup">
+        <img src="404-tick.png" >
+        <h2>Thank You!</h2>
+        <p>Your order has been placed succesfully </p>
+        <p>Thanks For Shopping with us</p>
+        
+        <button type="button" onclick="closepopup()">OK</button>
+    </div>
+</div>
+    <script>
+        let popup = document.getElementById("popup");
+
+        function openpopup(){
+            popup.classList.add("open-popup");
+        }
+        function closepopup(){
+            popup.classList.remove("open-popup");
+        }
+
+
+        // only once
+        $(document).ready(function(){
+            if(sessionStorage.getItem('#popup')!=='true')
+            {
+                $('#popup').modal('show');
+                sessionStorage.setItem('#popup',true);
+            }
+        });
+    </script>
+</body>
+</html>
